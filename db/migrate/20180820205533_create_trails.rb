@@ -6,7 +6,7 @@ class CreateTrails < ActiveRecord::Migration[5.2]
       t.string :description
       t.integer :rating
       t.string :photo
-      t.string :distance
+      t.integer :distance
       t.integer :difficulty
 
       t.belongs_to :type, foreign_key: true

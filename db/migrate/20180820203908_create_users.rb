@@ -7,7 +7,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :password
       t.string :profile_pic
 
-      t.belongs_to :bike, foreign_key: true
 
       t.timestamps
     end
