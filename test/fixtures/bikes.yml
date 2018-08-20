@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  make: MyString
+  model: MyString
+  year: MyString
+  type: 
+  photo: MyString
+  price: 1
+  modification: false
+
+two:
+  make: MyString
+  model: MyString
+  year: MyString
+  type: 
+  photo: MyString
+  price: 1
+  modification: false
