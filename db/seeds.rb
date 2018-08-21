@@ -23,10 +23,10 @@ touring = Type.create(style: "Touring")
 
 #trails
 
-memorial = Trail.create(name: "Memorial Park", location: "6501 Memorial Dr. Houston, TX", description: "Expansive city park with lush natural features.", rating: 4.7, photo: "img", distance: 5, difficulty: 5, type: mountain)
-buffalo = Trail.create(name: "Buffalo Bayou", location: "1800 Allen Pkwy. Houston, TX", description: "Winding, 124-acre green space featuring views of the Houston skyline.", rating: 4.6, photo: "img", distance: 10, difficulty: 3, type: hybrid)
-brays = Trail.create(name: "Brays Bayou", location: "9601 Braes Bayou Houston, TX", description: "Paved path along the bayou with several public parks.", rating: 3.8, photo: "img", distance: 33.8, difficulty: 4, type: hybrid)
-herman = Trail.create(name: "Herman Brown", location: "400 Mercury Dr. Houston, TX", description: "Moderately trafficked loop trail featuring a lake, good for all skill levels.", rating: 4, photo: "img", distance: 7.6, difficulty: 1, type: hybrid)
+memorial = Trail.create(name: "Memorial Park", location: "6501 Memorial Dr. Houston, TX", description: "Expansive city park with lush natural features.", rating: 4.7, photo: "/images/memorial_park.jpg", distance: 5, difficulty: 5, type: mountain)
+buffalo = Trail.create(name: "Buffalo Bayou", location: "1800 Allen Pkwy. Houston, TX", description: "Winding, 124-acre green space featuring views of the Houston skyline.", rating: 4.6, photo: "/images/buffalo_bayou.jpg", distance: 10, difficulty: 3, type: hybrid)
+brays = Trail.create(name: "Brays Bayou", location: "9601 Braes Bayou Houston, TX", description: "Paved path along the bayou with several public parks.", rating: 3.8, photo: "/images/brays_bayou.jpg", distance: 33.8, difficulty: 4, type: hybrid)
+herman = Trail.create(name: "Herman Brown", location: "400 Mercury Dr. Houston, TX", description: "Moderately trafficked loop trail featuring a lake, good for all skill levels.", rating: 4, photo: "/images/herman_brown.jpg", distance: 7.6, difficulty: 1, type: hybrid)
 
 #events
 
