@@ -3,7 +3,7 @@ class CreateRatings < ActiveRecord::Migration[5.2]
     create_table :ratings do |t|
       t.integer :rating
       t.string :comment
-      t.timestamp :date
+      t.datetime :date
       t.belongs_to :user, foreign_key: true
       t.belongs_to :trail, foreign_key: true
 
