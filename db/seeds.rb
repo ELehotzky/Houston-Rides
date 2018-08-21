@@ -1,3 +1,12 @@
+User.destroy_all
+Type.destroy_all
+Trail.destroy_all
+Event.destroy_all
+Bike.destroy_all
+Rating.destroy_all
+SignUp.destroy_all
+
+
 #Users
 
 ray = User.create(name: "Ray", username: "rayfromthedead", email: "rayfromthedead@gmail.com", password: "1234", profile_pic: "img")
@@ -35,10 +44,10 @@ socal = Bike.create(make: "SE Bikes", model: "So Cal Flyer", year: "2019", photo
 
 #ratings
 
-Rating.create(rating: 4, comment: "Nice easy ride", date: Date.new(2018, 8, 5), user: erica, trail: brays)
-Rating.create(rating: 5, comment: "Good views", date: Date.new(2018, 3, 15), user: alex, trail: buffalo)
-Rating.create(rating: 1, comment: "Couldn't find parking", date: Date.new(2018, 5, 21), user: alex, trail: herman)
-Rating.create(rating: 4, comment: "Tough course", date: Date.new(2018, 4, 8), user: ray, trail: memorial)
+Rating.create(score: 4, comment: "Nice easy ride", date: Date.new(2018, 8, 5), user: erica, trail: brays)
+Rating.create(score: 5, comment: "Good views", date: Date.new(2018, 3, 15), user: alex, trail: buffalo)
+Rating.create(score: 1, comment: "Couldn't find parking", date: Date.new(2018, 5, 21), user: alex, trail: herman)
+Rating.create(score: 4, comment: "Tough course", date: Date.new(2018, 4, 8), user: ray, trail: memorial)
 
 #sign_ups
 
@@ -46,17 +55,3 @@ SignUp.create(user: erica, event: critical)
 SignUp.create(user: ray, event: critical)
 SignUp.create(user: ray, event: htxcycling)
 SignUp.create(user: erica, event: tourdehood)
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,7 +1,7 @@
 class CreateRatings < ActiveRecord::Migration[5.2]
   def change
     create_table :ratings do |t|
-      t.integer :rating
+      t.integer :score
       t.string :comment
       t.datetime :date
       t.belongs_to :user, foreign_key: true
