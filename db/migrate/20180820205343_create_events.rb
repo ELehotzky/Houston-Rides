@@ -6,6 +6,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :location
       t.integer :distance
       t.string :description
+      t.string :website
       t.string :sponsor
       t.integer :price
 

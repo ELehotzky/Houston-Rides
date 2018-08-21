@@ -4,7 +4,6 @@ class CreateBikes < ActiveRecord::Migration[5.2]
       t.string :make
       t.string :model
       t.integer :year
-      t.string :type
       t.string :photo
       t.boolean :modification
 
