@@ -1,2 +1,13 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<h1>Events</h1>
+
+<ul><% @events.each do |event| %>
+	<li><h3><%= link_to event.name, event %></h3>
+	<%= event.date.strftime("%B %d, %Y at %I:%M %p") %><br>
+	<%= event.location %><br>
+	Distance: <%= event.distance %> miles<br>
+	Price: $<%= event.price %><br>
+	<a href= <%= event.website %> target="_blank">Website</a><br>
+	Type: <%= event.type.style %><br>
+	<%= link_to "Sign Up Here" %>
+</li>
+<% end %></ul>
