@@ -5,6 +5,7 @@ class EventsController < ApplicationController
 	end
 
 	def show
+	
 		@event = Event.find(params[:id])
 		@signup = SignUp.new
 		session[:event_id] = @event.id

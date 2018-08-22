@@ -10,6 +10,6 @@ class User < ApplicationRecord
 	has_many :trails, through: :ratings
 	has_many :trails, through: :types
 	has_many :events, through: :sign_ups
-	has_many :events, through: :types
+	# has_many :events, through: :types
 
 end
