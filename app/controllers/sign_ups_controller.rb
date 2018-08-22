@@ -13,8 +13,10 @@ class SignUpsController < ApplicationController
 	end
 
 	def create
-		@signup = SignUp.create(signup_params)
-		redirect_to signups_path
+		@signup = SignUp.create(user_id: session[:user_id], event_id: session[:event_id])
+		session[:event_id] = nil
+		redirect_to current_user
+
 	end
 
 	def edit

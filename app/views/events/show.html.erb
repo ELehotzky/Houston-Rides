@@ -5,5 +5,9 @@
 Distance: <%= @event.distance %> miles<br>
 Price: $<%= @event.price %><br>
 <a href= <%= @event.website %> target="_blank">Website</a><br>
-Type: <%= @event.type.style %>
-<%= link_to "Sign Up Here" %>
+Type: <%= @event.type.style %><br>
+
+
+<%= form_with model: @signup do |f| %>
+	<%= f.submit "Register Now" %>
+<% end %>
