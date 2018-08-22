@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+	before_action :redirect_if_not_logged_in, only: [:index]
 	
 	def index
 		@users = User.all
@@ -14,7 +16,13 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.create(user_params)
-		redirect_to users_path
+		if !user.valid?
+			flash[:error] = user.errors.full_messages
+			redirect_to signup_path
+		else
+			session[:user_id] = user.id 
+			redirect_to users_path
+		end
 	end
 
 	def edit
@@ -32,7 +40,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require[:user].permit(:name, :username, :email, :password, :profile_pic)
+		params.require[:user].permit(:name, :username, :email, :password, :password_confirmation, :profile_pic)
 	end
 
 end
