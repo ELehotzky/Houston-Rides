@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+	has_secure_password
+
 	has_many :bikes
 	has_many :types, through: :bike 
 	has_many :trails, through: :rating
