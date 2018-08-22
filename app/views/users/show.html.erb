@@ -1,2 +1,49 @@
-<h1>Users#show</h1>
+<h6>Welcome, <%= @user.name %></h6>
+<div style="background-color:orange">
+<p><img src=<%= @user.profile_pic %>>  <h1><%= @user.username %></h1></p>
+</div>
+<br><br>
+<div style="background-color:lightblue">
+<h1>My Bikes</h1>
+ <% @user.bikes.each do |bike|%>
+ <p><img src=<%= bike.photo %>></p>
+ <h3><%= bike.make %>/<%= bike.model %>,   <%= bike.year %></h3>
+ <%= link_to bike.type.style, type_path %>
+<% end%>
+</div>
+<br>
+<div style="background-color:lightgreen">
+<h1>My Trails</h1>
+
+ <% @user.ratings.each do |rating| %>
+   <img src=<%= rating.trail.photo %> style="max-width: 50%; height: auto"><br>
+   <%= link_to rating.trail.name, trail_path %> <%=rating.trail.location %> <br>
+   <%= rating.trail.description%> <br>
+   <%= link_to rating.trail.type.style, trail_path %> <br>
+   <%= rating.trail.distance %> <br>
+   <%=rating.trail.difficulty %> <br>
+   <%= rating.score %> 
+    <%= rating.comment %> <br>
+  <h6><%= rating.date %></h6>
+  <% end%>
+</div>
+<br>
+<br>
+
+ <% @user.events.each do |event| %>
+ <%= event.name %> <br>
+ <%= event.date %> <br>
+ <%= event.location%> <br>
+ <%= event.description %> <br>
+ <%= event.price %> <br>
+ <%= event.type.style%> <br>
+ <%= event.sponsor%> <br>
+ <%= event.website %> <br>
+ <br>
+<br>
+ <% end %>
+
+
+
+
 <p>Find me in app/views/users/show.html.erb</p>
