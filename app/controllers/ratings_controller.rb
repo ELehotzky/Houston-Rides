@@ -13,8 +13,8 @@ class RatingsController < ApplicationController
 	end
 
 	def create
-		@rating = Rating.create(rating_params)
-		redirect_to ratings_path
+		@rating = Rating.create(user_id: session[:user_id], trail_id: session[:trail_id])
+		redirect_to trail
 	end
 
 	def edit
