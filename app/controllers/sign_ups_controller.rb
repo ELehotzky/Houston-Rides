@@ -13,8 +13,12 @@ class SignUpsController < ApplicationController
 	end
 
 	def create
-		@signup = SignUp.create(signup_params)
-		redirect_to signups_path
+
+		@signup = SignUp.create(user_id: session[:user_id], event_id: session[:event_id])
+
+		session[:event_id] = nil
+		redirect_to current_user
+
 	end
 
 	def edit
@@ -27,6 +31,13 @@ class SignUpsController < ApplicationController
 
 		redirect_to @signup
 	end
+
+	def destroy
+
+		@signup = SignUp.find(params[:id])
+		@signup.destroy
+		redirect_to user_path
+	end 
 
 
 	private

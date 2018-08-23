@@ -3,10 +3,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	user = user.find_by(username: params[:username])
+  	user = User.find_by(username: params[:username])
   	if user && user.authenticate(params[:password])
   		session[:user_id] = user.id 
-  		redirect_to users_path
+  		redirect_to user
   	else
   		flash[:error] = "Incorrect Username/Password Combination"
   		redirect_to login_path

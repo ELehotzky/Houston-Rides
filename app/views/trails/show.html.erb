@@ -1,2 +1,9 @@
-<h1>Trails#show</h1>
-<p>Find me in app/views/trails/show.html.erb</p>
+<h1><%= @trail.name %></h1>
+
+	<img src=<%= @trail.photo %> style="max-width: 50%; height: auto"><br>
+	<%= @trail.location %><br>
+	<%= @trail.description %><br>
+	User Rating: <%= @trail.rating %><br>
+	<%= @trail.distance %> miles<br>
+	Difficulty: <%= @trail.difficulty %><br>
+	Style: <%= @trail.type.style %><br>

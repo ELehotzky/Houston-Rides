@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
 
-	before_action :redirect_if_not_logged_in, only: [:index]
+	before_action :redirect_if_not_logged_in, only: [:show]
 	
 	def index
-		@user = current_user
 	end
 
 	def show
-		@user = User.find(params[:id])
+		@user = current_user
 	end
 
 	def new

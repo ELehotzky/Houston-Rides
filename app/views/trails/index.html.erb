@@ -1,7 +1,7 @@
 <h1>Trails</h1>
 
 <ul><% @trails.each do |trail| %>
-	<li><h3><%= trail.name %></h3>
+	<li><h3><%= link_to trail.name, trail %></h3>
 	<img src=<%= trail.photo %> style="max-width: 50%; height: auto"><br>
 	<%= trail.location %><br>
 	<%= trail.description %><br>
