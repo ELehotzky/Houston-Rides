@@ -13,8 +13,10 @@ class RatingsController < ApplicationController
 	end
 
 	def create
-		@rating = Rating.create(rating_params)
-		redirect_to ratings_path
+		@rating = Rating.create(score: params[:rating][:score], comment: params[:rating][:comment], user_id: session[:user_id], trail_id: session[:trail_id])
+		session[:trail_id] = nil
+
+		redirect_to @rating.trail
 	end
 
 	def edit
@@ -24,6 +26,6 @@ class RatingsController < ApplicationController
 	private
 
 	def rating_params
-		params.require[:rating].permit(:score, :comment, :date, :user_id, :trail_id)
+		params.require[:rating].permit(:score, :comment, :user_id, :trail_id)
 	end
 end
