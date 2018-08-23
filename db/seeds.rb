@@ -1,12 +1,11 @@
-User.destroy_all
-Type.destroy_all
+
+Rating.destroy_all
+SignUp.destroy_all
 Trail.destroy_all
 Event.destroy_all
 Bike.destroy_all
-Rating.destroy_all
-SignUp.destroy_all
-
-
+User.destroy_all
+Type.destroy_all
 #Users
 
 ray = User.create(name: "Ray", username: "rayfromthedead", email: "rayfromthedead@gmail.com", password: "1234", profile_pic: "/images/ray.jpg")
