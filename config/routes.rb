@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  
+
 	resources :users, :bikes, :events, :trails, :types, :ratings, :sessions, :sign_ups
+	root "users#index"
 	get "/signup", to: "users#new"
 	get "/login", to: "sessions#new"
 	post "sessions", to: "sessions#create"
