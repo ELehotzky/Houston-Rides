@@ -12,6 +12,7 @@ SignUp.destroy_all
 ray = User.create(name: "Ray", username: "rayfromthedead", email: "rayfromthedead@gmail.com", password: "1234", profile_pic: "/images/ray.jpg")
 alex = User.create(name: "Alex", username: "bosskey", email: "blah@gmail.com", password: "pass", profile_pic: "/images/alex.jpg")
 erica = User.create(name: "Erica", username: "elehotzky", email: "non@gmail.com", password: "p@ssw0rd", profile_pic: "/images/erica.jpg")
+derek = User.create(name: "Derek", username: "flexlutherr", email: "derek@fake.com", password: "asdf", profile_pic: "/images/derek.jpg")
 
 #Types
 
@@ -41,6 +42,7 @@ jamis = Bike.create(make: "Jamis", model: "Coda Sport", year: "2017", photo: "/i
 giant = Bike.create(make: "Giant", model: "Contend", year: "2015", photo: "/images/giant.jpg", modification: true, user: ray, type: road)
 cross = Bike.create(make: "Cross-Check", model: "Surly Flat Bar", year: "2018", photo: "/images/surly.jpg", modification: false, user: alex, type: hybrid)
 socal = Bike.create(make: "SE Bikes", model: "So Cal Flyer", year: "2019", photo: "/images/socal.jpg", modification: false, user: ray, type: bmx)
+huffy = Bike.create(make: "Huffy", model: "Spartan", year: "2017", photo: "/images/huffy.jpg", modification: false, user: derek, type: bmx)
 
 #ratings
 
