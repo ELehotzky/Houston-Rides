@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2018_08_20_212747) do
   create_table "ratings", force: :cascade do |t|
     t.integer "score"
     t.string "comment"
-    t.datetime "date"
     t.integer "user_id"
     t.integer "trail_id"
     t.datetime "created_at", null: false

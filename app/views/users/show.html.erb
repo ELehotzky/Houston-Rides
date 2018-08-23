@@ -24,7 +24,7 @@
    <%=rating.trail.difficulty %> <br>
    <%= rating.score %> 
     <%= rating.comment %> <br>
-  <h6><%= rating.date %></h6>
+  <h6><%= rating.created_at.strftime("Posted %m/%d/%Y")  %></h6>
   <% end%>
 </div>
 <br>
@@ -42,8 +42,3 @@
  <br>
 <br>
  <% end %>
-
-
-
-
-<p>Find me in app/views/users/show.html.erb</p>

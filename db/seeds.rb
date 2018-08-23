@@ -9,9 +9,9 @@ SignUp.destroy_all
 
 #Users
 
-ray = User.create(name: "Ray", username: "rayfromthedead", email: "rayfromthedead@gmail.com", password: "1234", profile_pic: "img")
-alex = User.create(name: "Alex", username: "bosskey", email: "blah@gmail.com", password: "pass", profile_pic: "bear")
-erica = User.create(name: "Erica", username: "elehotzky", email: "non@gmail.com", password: "p@ssw0rd", profile_pic: "img")
+ray = User.create(name: "Ray", username: "rayfromthedead", email: "rayfromthedead@gmail.com", password: "1234", profile_pic: "/images/ray.jpg")
+alex = User.create(name: "Alex", username: "bosskey", email: "blah@gmail.com", password: "pass", profile_pic: "/images/alex.jpg")
+erica = User.create(name: "Erica", username: "elehotzky", email: "non@gmail.com", password: "p@ssw0rd", profile_pic: "/images/erica.jpg")
 
 #Types
 
@@ -37,17 +37,17 @@ htxcycling = Event.create(name: "Intermediate/Advanced Mountain Bike Ride at the
 
 #bikes
 
-jamis = Bike.create(make: "Jamis", model: "Coda Sport", year: "2017", photo: "img", modification: false, user: erica, type: hybrid)
-giant = Bike.create(make: "Giant", model: "Contend", year: "2015", photo: "img", modification: true, user: ray, type: road)
-cross = Bike.create(make: "Cross-Check", model: "Surly Flat Bar", year: "2018", photo: "img", modification: false, user: alex, type: hybrid)
-socal = Bike.create(make: "SE Bikes", model: "So Cal Flyer", year: "2019", photo: "img", modification: false, user: ray, type: bmx)
+jamis = Bike.create(make: "Jamis", model: "Coda Sport", year: "2017", photo: "/images/jamis.jpg", modification: false, user: erica, type: hybrid)
+giant = Bike.create(make: "Giant", model: "Contend", year: "2015", photo: "/images/giant.jpg", modification: true, user: ray, type: road)
+cross = Bike.create(make: "Cross-Check", model: "Surly Flat Bar", year: "2018", photo: "/images/surly.jpg", modification: false, user: alex, type: hybrid)
+socal = Bike.create(make: "SE Bikes", model: "So Cal Flyer", year: "2019", photo: "/images/socal.jpg", modification: false, user: ray, type: bmx)
 
 #ratings
 
-Rating.create(score: 4, comment: "Nice easy ride", date: Date.new(2018, 8, 5), user: erica, trail: brays)
-Rating.create(score: 5, comment: "Good views", date: Date.new(2018, 3, 15), user: alex, trail: buffalo)
-Rating.create(score: 1, comment: "Couldn't find parking", date: Date.new(2018, 5, 21), user: alex, trail: herman)
-Rating.create(score: 4, comment: "Tough course", date: Date.new(2018, 4, 8), user: ray, trail: memorial)
+Rating.create(score: 4, comment: "Nice easy ride", user: erica, trail: memorial)
+Rating.create(score: 5, comment: "Good views", user: alex, trail: buffalo)
+Rating.create(score: 1, comment: "Couldn't find parking", user: alex, trail: herman)
+Rating.create(score: 4, comment: "Tough course", user: ray, trail: memorial)
 
 #sign_ups
 
