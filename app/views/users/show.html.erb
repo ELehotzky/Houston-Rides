@@ -1,35 +1,34 @@
-<h6>Welcome, <%= @user.name %></h6>
+<h2>Welcome, <%= @user.name %></h2>
 <div style="background-color:orange">
-<p><img src=<%= @user.profile_pic %>>  <h1><%= @user.username %></h1></p>
+    <h1><%= @user.username %></h1><img src=<%= @user.profile_pic %> style="max-width: 50%; height: auto">>
 </div>
 <br><br>
+
 <div style="background-color:lightblue">
 <h1>My Bikes</h1>
- <% @user.bikes.each do |bike|%>
- <p><img src=<%= bike.photo %>></p>
- <h3><%= bike.make %>/<%= bike.model %>,   <%= bike.year %></h3>
- <%= link_to bike.type.style, type_path %>
-<% end%>
+    <% @user.bikes.each do |bike|%>
+        <p><img src=<%= bike.photo %> style="max-width: 50%; height: auto"></p>
+        <h3><%= bike.make %>/<%= bike.model %>,   <%= bike.year %></h3>
+        <%= link_to bike.type.style, type_path %>
+    <% end%>
 </div>
 <br>
+
 <div style="background-color:lightgreen">
 <h1>My Trails</h1>
 
- <% @user.ratings.each do |rating| %>
-   <img src=<%= rating.trail.photo %> style="max-width: 50%; height: auto"><br>
-   <%= link_to rating.trail.name, trail_path %> <%=rating.trail.location %> <br>
-   <%= rating.trail.description%> <br>
-   <%= link_to rating.trail.type.style, trail_path %> <br>
-    <h3><%= rating.trail.distance %> Miles</h3> 
-   <h3>Difficulty<%=rating.trail.difficulty %> </h3> 
-   <h3>Rating
-   <%=  "*" * (rating.score)  %> </h3> 
-   <h3>My thoughts</h3>
-    <%= rating.comment %> <br>
+    <% @user.ratings.each do |rating| %>
+        <img src=<%= rating.trail.photo %> style="max-width: 50%; height: auto"><br>
+        <%= link_to rating.trail.name, trail_path %> <%=rating.trail.location %> <br>
+        <%= rating.trail.description%> <br>
+        Trail Style: <%= link_to rating.trail.type.style, trail_path %> <br>
+        Distance: <%= rating.trail.distance %> miles <br>
+        Difficulty: <%=rating.trail.difficulty %> <br>
+        My Rating: <%= rating.score %><br>
+        My Comment: <%= rating.comment %> <br>
+        <p><%= rating.created_at.strftime("Posted %m/%d/%Y")  %></p>
+    <% end%>
 
-  <h6><%= rating.created_at.strftime("Posted %m/%d/%Y")  %></h6>
-
-  <% end%>
 </div>
 <br>
 <br>
