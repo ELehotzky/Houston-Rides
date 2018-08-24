@@ -12,24 +12,17 @@ class SignUpsController < ApplicationController
 		@signup = SignUp.new
 	end
 
+	#Clicking on "Register" saves an event to a user's profile, unless they've
+	#already registered for an event
 	def create
-
-		@signup = SignUp.create(user_id: session[:user_id], event_id: session[:event_id])
-
+		@signup = SignUp.new(user_id: session[:user_id], event_id: session[:event_id])
 		session[:event_id] = nil
+
+		if !current_user.event_ids.include? @signup[:event_id]
+			@signup.save
+		end
+		
 		redirect_to current_user
-
-	end
-
-	def edit
-		@signup = SignUp.find(params[:id])
-	end
-
-	def update
-		@signup = SignUp.find(params[:id])
-		@signup.update(signup_params)
-
-		redirect_to @signup
 	end
 
 	def destroy
