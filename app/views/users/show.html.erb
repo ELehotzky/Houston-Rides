@@ -26,7 +26,8 @@
         Difficulty: <%=rating.trail.difficulty %> <br>
         My Rating: <%= "*" * (rating.score)  %><br>
         My Thoughts: <%= rating.comment %> <br>
-        <p><%= rating.created_at.strftime("Posted %m/%d/%Y")  %></p>
+        <p><%= rating.created_at.strftime("Posted %m/%d/%Y")%>
+          <%= link_to "Edit Review", edit_rating_path(@id = rating.id) %></p>
     <% end%>
 </div>
 
