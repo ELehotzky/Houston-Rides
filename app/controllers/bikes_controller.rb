@@ -28,6 +28,13 @@ class BikesController < ApplicationController
 		redirect_to @bike
 	end
 
+	def destroy
+
+		@bike = Bike.find(params[:id])
+		@bike.destroy
+		redirect_to user_path
+	end 
+
 
 	private
 

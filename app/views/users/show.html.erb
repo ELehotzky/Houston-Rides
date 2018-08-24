@@ -1,6 +1,7 @@
 <h6>Welcome, <%= @user.name %></h6>
 <div style="background-color:orange">
 <p><img src=<%= @user.profile_pic %>>  <h1><%= @user.username %></h1></p>
+<h5><%= button_to "edit profile", edit_user_path(@id = @user.id), :method => "get" %></h5>
 </div>
 <br><br>
 <div style="background-color:lightblue">
@@ -9,6 +10,8 @@
  <p><img src=<%= bike.photo %>></p>
  <h3><%= bike.make %>/<%= bike.model %>,   <%= bike.year %></h3>
  <%= link_to bike.type.style, type_path %>
+ <h5><%= button_to "remove", bike_path(@id = bike.id ), :method => "delete" %></h5>
+ <h5><%= button_to "edit bike", edit_bike_path(@id = bike.id ), :method => "get" %></h5>
 <% end%>
 </div>
 <br>
@@ -49,6 +52,3 @@
  <% end %>
 </div>
 
-
-
-<p>Find me in app/views/users/show.html.erb</p>
