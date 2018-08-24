@@ -22,10 +22,12 @@ class BikesController < ApplicationController
 	end
 
 	def update
+
 		@bike = Bike.find(params[:id])
 		@bike.update(bike_params)
+		flash[:notice] = "Your bike was successfully updated!"
 
-		redirect_to @bike
+		redirect_to current_user
 	end
 
 	def destroy
@@ -39,6 +41,6 @@ class BikesController < ApplicationController
 	private
 
 	def bike_params
-		params.require[:bike].permit(:make, :model, :year, :photo, :modification, :user_id, :type_id)
+		params.require(:bike).permit(:make, :model, :year, :photo, :modification, :user_id, :type_id)
 	end
 end
