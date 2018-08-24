@@ -16,6 +16,7 @@
 
 <div style="background-color:lightgreen">
 <h1>My Trails</h1>
+
     <% @user.ratings.each do |rating| %>
         <img src=<%= rating.trail.photo %> style="max-width: 50%; height: auto"><br>
         <%= link_to rating.trail.name, trail_path %> <%=rating.trail.location %> <br>
@@ -27,19 +28,24 @@
         My Comment: <%= rating.comment %> <br>
         <p><%= rating.created_at.strftime("Posted %m/%d/%Y")  %></p>
     <% end%>
+
 </div>
 <br>
 <br>
-
- <% @user.events.each do |event| %>
- <%= event.name %> <br>
- <%= event.date %> <br>
- <%= event.location%> <br>
- <%= event.description %> <br>
- <%= event.price %> <br>
- <%= event.type.style%> <br>
- <%= event.sponsor%> <br>
- <%= event.website %> <br>
+<div style="background-color:yellow">
+<h1>Upcoming Events</h1>
+ <% @user.sign_ups.each do |su| %>
+ <%= su.event.name %> <br>
+ <%= su.event.date %> <br>
+ <%= su.event.location%> <br>
+ <%= su.event.description %> <br>
+ <%= su.event.price %> <br>
+ <%= su.event.type.style%> <br>
+ <%= su.event.sponsor%> <br>
+ <%= su.event.website %> <br>
+<h5><%= button_to "remove", sign_up_path(@id = su.id ), :method => "delete" %></h5>
  <br>
 <br>
+
  <% end %>
+</div>
