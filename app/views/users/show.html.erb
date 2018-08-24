@@ -5,7 +5,8 @@
 </div>
 <br><br>
 <div style="background-color:lightblue">
-<h1>My Bikes</h1>
+<h1>My Bikes</h1> 
+ <h5><%= button_to "Add New Bike", new_bike_path, :method => "get" %></h5>
  <% @user.bikes.each do |bike|%>
  <p><img src=<%= bike.photo %>></p>
  <h3><%= bike.make %>/<%= bike.model %>,   <%= bike.year %></h3>
