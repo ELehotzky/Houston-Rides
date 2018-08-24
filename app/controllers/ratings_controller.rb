@@ -13,17 +13,34 @@ class RatingsController < ApplicationController
 	end
 
 	def create
-		@rating = Rating.create(rating_params)
-		redirect_to ratings_path
+		@rating = Rating.create(score: params[:rating][:score], comment: params[:rating][:comment], user_id: session[:user_id], trail_id: session[:trail_id])
+		session[:trail_id] = nil
+
+		redirect_to @rating.trail
 	end
 
 	def edit
+		@rating = Rating.find(params[:id])
+	end
+
+	def update
+		@rating = Rating.find(params[:id])
+		@rating.update(score: params[:rating][:score], comment: params[:rating][:comment])
+		# flash[:notice] = "Your review was successfully updated"
+		redirect_to user_path
+	end
+
+	def destroy
+		@rating = Rating.find(params[:id])
+		@rating.destroy
+
+		redirect_to current_user
 	end
 
 
 	private
 
 	def rating_params
-		params.require[:rating].permit(:score, :comment, :date, :user_id, :trail_id)
+		params.require[:rating].permit(:score, :comment, :user_id, :trail_id)
 	end
 end

@@ -4,7 +4,6 @@
 <p><%= form_with model: @rating do |f| %>
 	<label>Rating: <%= f.select :score, [["*****", 5], ["****", 4], ["***", 3], ["**", 2], ["*", 1]] %></label><br>
 	<label>Comment: <%= f.text_area :comment %></label><br>
-	<%= f.date_field :date %><br>
 	<%= f.submit "Submit Review" %>
 
 <% end %></p>
