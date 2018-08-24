@@ -20,6 +20,21 @@ class RatingsController < ApplicationController
 	end
 
 	def edit
+		@rating = Rating.find(params[:id])
+	end
+
+	def update
+		@rating = Rating.find(params[:id])
+		@rating.update(score: params[:rating][:score], comment: params[:rating][:comment])
+
+		redirect_to user_path
+	end
+
+	def destroy
+		@rating = Rating.find(params[:id])
+		@rating.destroy
+
+		redirect_to current_user
 	end
 
 

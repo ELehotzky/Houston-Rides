@@ -1,0 +1,30 @@
+<h1>Local Trails and Events for <%= @type.style %> Bikes</h1>
+
+<div style="background-color:lightgreen">
+<h1><%= @type.style %> Trails</h1>
+
+    <% @type.trails.each do |trail| %>
+        <img src=<%= trail.photo %> style="max-width: 50%; height: auto"><br>
+        <%= link_to trail.name, trail_path %> <%=trail.location %> <br>
+        <%= trail.description%> <br>
+        Trail Style: <%= @type.style %> <br>
+        Distance: <%= trail.distance %> miles <br>
+        Difficulty: <%= trail.difficulty %> <br>
+    <% end%>
+</div>
+
+
+<div style="background-color:yellow">
+<h1>Upcoming Events</h1>
+    <% @type.events.each do |event| %>
+         <h2><%= link_to event.name, event %></h2>
+         <br>
+        <%= event.date.strftime("%B %d, %Y at %I:%M %p") %><br>
+		<%= event.location %><br>
+		Distance: <%= event.distance %> miles<br>
+		Price: $<%= event.price %><br>
+		<a href= <%= event.website %> target="_blank">Website</a><br>
+		Type: <%= event.type.style %><br>
+    
+	<% end %>
+	<br>
