@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
 	root "users#index"
 	resources :users, :bikes, :events, :trails, :ratings, :sessions, :sign_ups
-	resources :ratings, only: [:new, :edit]
 	resources :types, only: [:index, :show]
 	get "/signup", to: "users#new"
 	get "/login", to: "sessions#new"

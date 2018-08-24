@@ -26,7 +26,7 @@ class RatingsController < ApplicationController
 	def update
 		@rating = Rating.find(params[:id])
 		@rating.update(score: params[:rating][:score], comment: params[:rating][:comment])
-
+		# flash[:notice] = "Your review was successfully updated"
 		redirect_to user_path
 	end
 
