@@ -13,8 +13,8 @@ class BikesController < ApplicationController
 	end
 
 	def create
-		@bike = Bike.create(bike_params)
-		redirect_to bikes_path
+		@bike = Bike.create(make:params[:bike][:make], model:params[:bike][:model], year:params[:bike][:year],photo:params[:bike][:photo], modification:params[:bike][:modification], type_id:params[:bike][:type_id], user_id: session[:user_id])
+		redirect_to @bike.user
 	end
 
 	def edit
