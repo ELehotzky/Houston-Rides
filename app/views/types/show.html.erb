@@ -1,6 +1,6 @@
 <h1>Local Trails and Events for <%= @type.style %> Bikes</h1>
 
-<div style="background-color:lightgreen">
+<div style="background-color:#CBD4C2">
 <h1><%= @type.style %> Trails</h1>
 
     <% @type.trails.each do |trail| %>
@@ -14,7 +14,7 @@
 </div>
 
 
-<div style="background-color:yellow">
+<div style="background-color:#EFECCA">
 <h1>Upcoming Events</h1>
     <% @type.events.each do |event| %>
          <h2><%= link_to event.name, event %></h2>

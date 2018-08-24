@@ -1,3 +1,4 @@
+<div style="background-color:#EFECCA">
 <h1><%= @event.name %></h1>
 
 <%= @event.date.strftime("%B %d, %Y at %I:%M %p") %><br>
@@ -11,3 +12,4 @@ Type: <%= @event.type.style %><br>
 <%= form_with model: @signup do |f| %>
 	<%= f.submit "Register Now" %>
 <% end %>
+</div>
