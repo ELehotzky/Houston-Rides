@@ -16,6 +16,7 @@
 
 <div style="background-color:lightgreen">
 <h1>My Trails</h1>
+
     <% @user.ratings.each do |rating| %>
         <img src=<%= rating.trail.photo %> style="max-width: 50%; height: auto"><br>
         <%= link_to rating.trail.name, trail_path %> <%=rating.trail.location %> <br>
@@ -23,23 +24,28 @@
         Trail Style: <%= link_to rating.trail.type.style, trail_path %> <br>
         Distance: <%= rating.trail.distance %> miles <br>
         Difficulty: <%=rating.trail.difficulty %> <br>
-        My Rating: <%= rating.score %><br>
-        My Comment: <%= rating.comment %> <br>
+        My Rating: <%= "*" * (rating.score)  %><br>
+        My Thoughts: <%= rating.comment %> <br>
         <p><%= rating.created_at.strftime("Posted %m/%d/%Y")  %></p>
     <% end%>
 </div>
-<br>
-<br>
 
- <% @user.events.each do |event| %>
- <%= event.name %> <br>
- <%= event.date %> <br>
- <%= event.location%> <br>
- <%= event.description %> <br>
- <%= event.price %> <br>
- <%= event.type.style%> <br>
- <%= event.sponsor%> <br>
- <%= event.website %> <br>
+<br><br>
+
+<div style="background-color:yellow">
+<h1>Upcoming Events</h1>
+    <% @user.sign_ups.each do |su| %>
+        <%= su.event.name %> <br>
+        <%= su.event.date.strftime("%m/%d/%Y at %I:%M %p") %> <br>
+        <%= su.event.location%> <br><br>
+        Description: <%= su.event.description %> <br><br>
+        Price: $<%= su.event.price %> <br>
+        Event Type: <%= su.event.type.style%> <br>
+        Sponsor: <%= su.event.sponsor%> <br>
+        <a href= <%= su.event.website %> target="_blank">Website</a><br>
+    <h5><%= button_to "remove", sign_up_path(@id = su.id ), :method => "delete" %></h5>
  <br>
 <br>
+
  <% end %>
+</div>
