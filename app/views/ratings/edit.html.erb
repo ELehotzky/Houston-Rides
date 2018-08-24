@@ -1,2 +1,10 @@
-<h1>Rating#edit</h1>
-<p>Find me in app/views/rating/edit.html.erb</p>
+<h1>Edit My Review</h1>
+
+
+<p><%= form_with model: @rating do |f| %>
+	<label>Rating: <%= f.select :score, [["*****", 5], ["****", 4], ["***", 3], ["**", 2], ["*", 1]] %></label><br>
+	<label>Comment: <%= f.text_area :comment %></label><br>
+	<%= f.submit "Submit Review" %>
+
+<% end %></p>
+ 

@@ -1,55 +1,56 @@
-<h6>Welcome, <%= @user.name %></h6>
+<h2>Welcome, <%= @user.name %></h2>
 <div style="background-color:orange">
-<p><img src=<%= @user.profile_pic %>>  <h1><%= @user.username %></h1></p>
-<h5><%= button_to "edit profile", edit_user_path(@id = @user.id), :method => "get" %></h5>
+
+    <h1><%= @user.username %></h1><img src=<%= @user.profile_pic %> style="max-width: 50%; height: auto">
+  <h5><%= button_to "edit profile", edit_user_path(@id = @user.id), :method => "get" %></h5>
+
 </div>
-<br><br>
+<br>
+
 <div style="background-color:lightblue">
 <h1>My Bikes</h1> 
  <h5><%= button_to "Add New Bike", new_bike_path, :method => "get" %></h5>
- <% @user.bikes.each do |bike|%>
- <p><img src=<%= bike.photo %>></p>
- <h3><%= bike.make %>/<%= bike.model %>,   <%= bike.year %></h3>
- <%= link_to bike.type.style, type_path %>
+    <% @user.bikes.each do |bike|%>
+        <p><img src=<%= bike.photo %> style="max-width: 50%; height: auto"></p>
+        <h3><%= bike.make %>/<%= bike.model %>,   <%= bike.year %></h3>
+        <%= link_to bike.type.style, type_path(@id = bike.id) %>
  <h5><%= button_to "remove", bike_path(@id = bike.id ), :method => "delete" %></h5>
  <h5><%= button_to "edit bike", edit_bike_path(@id = bike.id ), :method => "get" %></h5>
-<% end%>
+    <% end%>
 </div>
 <br>
+
 <div style="background-color:lightgreen">
 <h1>My Trails</h1>
 
- <% @user.ratings.each do |rating| %>
-   <img src=<%= rating.trail.photo %> style="max-width: 50%; height: auto"><br>
-   <%= link_to rating.trail.name, trail_path %> <%=rating.trail.location %> <br>
-   <%= rating.trail.description%> <br>
-   <%= link_to rating.trail.type.style, trail_path %> <br>
-    <h3><%= rating.trail.distance %> Miles</h3> 
-   <h3>Difficulty<%=rating.trail.difficulty %> </h3> 
-   <h3>Rating
-   <%=  "*" * (rating.score)  %> </h3> 
-   <h3>My thoughts</h3>
-    <%= rating.comment %> <br>
-  <h6><%= rating.date.strftime("%B %d, %Y at %I:%M %p")  %></h6>
-  <% end%>
+    <% @user.ratings.each do |rating| %>
+        <img src=<%= rating.trail.photo %> style="max-width: 50%; height: auto"><br>
+        <%= link_to rating.trail.name, trail_path %> <%=rating.trail.location %> <br>
+        <%= rating.trail.description%> <br>
+        Trail Style: <%= link_to rating.trail.type.style, type_path(@id = rating.id) %> <br>
+        Distance: <%= rating.trail.distance %> miles <br>
+        Difficulty: <%=rating.trail.difficulty %> <br>
+        My Rating: <%= "*" * (rating.score)  %><br>
+        My Thoughts: <%= rating.comment %> <br>
+        <p><%= rating.created_at.strftime("Posted %m/%d/%Y")%>
+            <%= button_to "Edit Review", edit_rating_path(@id = rating.id), method: "get" %>
+            <%= button_to "Delete Review", rating, method: "delete", data: { confirm: "Are you sure you want to permanently delete your review?" } %></p>
+    <% end%>
 </div>
+
 <br>
-<br>
+
 <div style="background-color:yellow">
 <h1>Upcoming Events</h1>
- <% @user.sign_ups.each do |su| %>
- <%= su.event.name %> <br>
- <%= su.event.date %> <br>
- <%= su.event.location%> <br>
- <%= su.event.description %> <br>
- <%= su.event.price %> <br>
- <%= su.event.type.style%> <br>
- <%= su.event.sponsor%> <br>
- <%= su.event.website %> <br>
-<h5><%= button_to "remove", sign_up_path(@id = su.id ), :method => "delete" %></h5>
- <br>
-<br>
-
+    <% @user.sign_ups.each do |su| %>
+        <%= link_to su.event.name, su.event %> <br>
+        <%= su.event.date.strftime("%m/%d/%Y at %I:%M %p") %> <br>
+        <%= su.event.location%> <br><br>
+        Description: <%= su.event.description %> <br><br>
+        Price: $<%= su.event.price %> <br>
+        Event Type: <%= link_to su.event.type.style, type_path(@id = su.event.type.id)%> <br>
+        Sponsor: <%= su.event.sponsor%> <br>
+        <a href= <%= su.event.website %> target="_blank">Website</a>
+    <%= button_to "Remove from My Events", sign_up_path(@id = su.id), :method => "delete" %>
+    *******************<br>
  <% end %>
-</div>
-

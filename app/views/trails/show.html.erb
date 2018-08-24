@@ -3,7 +3,19 @@
 	<img src=<%= @trail.photo %> style="max-width: 50%; height: auto"><br>
 	<%= @trail.location %><br>
 	<%= @trail.description %><br>
-	User Rating: <%= @trail.rating %><br>
 	<%= @trail.distance %> miles<br>
 	Difficulty: <%= @trail.difficulty %><br>
 	Style: <%= @trail.type.style %><br>
+	
+
+<h3>User Ratings</h3>
+
+	<% @trail.ratings.each do |rate| %>
+		User: <%= rate.user.username %><br>
+		<%= rate.created_at.strftime("Posted %m/%d/%Y")  %><br>
+		<%= rate.score %> / 5 stars<br>
+		Comment: <%= rate.comment %></br>
+		<div>******************************</div>
+	<% end %>
+
+<%= link_to "Rate this Trail", new_rating_path %>
