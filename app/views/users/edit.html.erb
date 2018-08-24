@@ -1,2 +1,15 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div><h1>Edit Account</h1></div>
+
+
+<div style="background-color:firebrick">
+<%= form_with model: @user do |f| %>
+  <%= f.text_field  :name, placeholder:@user.name %> <br> <br>
+	<%= f.text_field :username, placeholder:@user.username %><br> <br>
+   <%= f.text_field :profile_pic, placeholder:"insert picture url" %> <br> <br>
+  <%= f.text_field :email, placeholder: @user.email %> <br> <br>
+	<%= f.password_field :password, placeholder:"Password" %><br> <br>
+	<%= f.password_field :password_confirmation, placeholder:"Confirm Password" %><br>
+	<%= f.submit "Save Changes" %>
+   
+<% end %>
+</div>

@@ -1,15 +1,21 @@
 <h2>Welcome, <%= @user.name %></h2>
 <div style="background-color:orange">
+
     <h1><%= @user.username %></h1><img src=<%= @user.profile_pic %> style="max-width: 50%; height: auto">
+  <h5><%= button_to "edit profile", edit_user_path(@id = @user.id), :method => "get" %></h5>
+
 </div>
 <br>
 
 <div style="background-color:lightblue">
 <h1>My Bikes</h1>
+
     <% @user.bikes.each do |bike|%>
         <p><img src=<%= bike.photo %> style="max-width: 50%; height: auto"></p>
         <h3><%= bike.make %>/<%= bike.model %>,   <%= bike.year %></h3>
         <%= link_to bike.type.style, type_path(@id = bike.id) %>
+ <h5><%= button_to "remove", bike_path(@id = bike.id ), :method => "delete" %></h5>
+ <h5><%= button_to "edit bike", edit_bike_path(@id = bike.id ), :method => "get" %></h5>
     <% end%>
 </div>
 <br>
@@ -48,4 +54,3 @@
     <%= button_to "Remove from My Events", sign_up_path(@id = su.id), :method => "delete" %>
     *******************<br>
  <% end %>
-</div>
